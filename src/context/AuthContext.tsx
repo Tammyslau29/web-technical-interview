@@ -4,7 +4,7 @@ import {
     getAuth,
     User
 } from 'firebase/auth';
-import firebase from '../firebase/config';
+import { firebase } from '../firebase/config';
 
 interface AuthContextProps {
     user: User | null;
