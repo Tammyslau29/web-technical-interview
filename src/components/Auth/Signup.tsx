@@ -28,7 +28,7 @@ export const Signup = ({ goToSignIn }: SignupProps) => {
                 console.log("Error with signup", error)
             } else {
                 toast.success(`Welcome to Revive, ${result?.user.email}!`);
-                router.push("/home")
+                router.push("/home-cards")
             }
         }
     };

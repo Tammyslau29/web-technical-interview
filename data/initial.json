@@ -1,0 +1,11 @@
+{
+    "address": "123 fake st",
+    "fullAddress": "123 fake st. Irvine, CA 92656",
+    "city": "Irvine",
+    "state": "CA",
+    "zipCode": 92656,
+    "bedrooms": 4,
+    "bathrooms": 2.5,
+    "yearBuilt": 2000,
+    "sqft": 2343
+}
