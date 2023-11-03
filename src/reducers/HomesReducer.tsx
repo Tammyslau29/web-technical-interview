@@ -29,11 +29,24 @@ export const HomesReducer = (state: State, action: Action): State => {
                 homes: [...state.homes, action.payload],
             };
         case ActionTypes.UPDATE_HOME:
-            // Implement your update logic
-            return state;
+            const updatedHome = action.payload;
+            const homes = state.homes.map((home) => {
+                if (home.id === updatedHome.id) {
+                    return updatedHome;
+                }
+                return home;
+            });
+            return {
+                ...state,
+                homes,
+            };
         case ActionTypes.DELETE_HOME:
-            // Implement your delete logic
-            return state;
+            const id = action.payload;
+            const updatedHomes = state.homes.filter((home) => home.id !== id);
+            return {
+                ...state,
+                homes: updatedHomes,
+            };
         case ActionTypes.SET_SELECTED_HOME:
             return {
                 ...state,
@@ -54,17 +67,17 @@ export const addHome = (home: Home): Action => ({
     payload: home,
 });
 
-const updateItem = (home: Home): Action => ({
+export const updateHome = (home: Home): Action => ({
     type: ActionTypes.UPDATE_HOME,
     payload: home,
 });
 
-const deleteItem = (itemId: number): Action => ({
+export const removeHome = (id: number): Action => ({
     type: ActionTypes.DELETE_HOME,
-    payload: itemId,
+    payload: id,
 });
 
-const setSelectedHome = (home: Home | null): Action => ({
+export const setSelectedHome = (home: Home): Action => ({
     type: ActionTypes.SET_SELECTED_HOME,
     payload: home,
 });

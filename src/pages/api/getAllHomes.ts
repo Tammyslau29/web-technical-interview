@@ -13,7 +13,10 @@ export default async function handler(
             const q = query(collection(db, "homes"));
             const querySnapshot = await getDocs(q);
             querySnapshot.forEach((doc) => {
-                items.push(doc.data());
+                items.push({
+                    id: doc.id,
+                    ...doc.data(),
+                });
             });
 
             res.status(200).json(items);
